@@ -1,0 +1,427 @@
+{
+  "dataset": "adult_income",
+  "n_seeds": 5,
+  "aggregate": {
+    "accuracy": {
+      "mean": 0.7587985995946195,
+      "std": 0.011124716305969102,
+      "n": 5,
+      "min": 0.7388981020821817,
+      "max": 0.7637737239727289,
+      "per_seed": [
+        0.7388981020821817,
+        0.7637737239727289,
+        0.7637737239727289,
+        0.7637737239727289,
+        0.7637737239727289
+      ]
+    },
+    "accuracy_after_intervention": {
+      "mean": 0.7287547447945457,
+      "std": 0.01957620448626681,
+      "n": 5,
+      "min": 0.72,
+      "max": 0.7637737239727289,
+      "per_seed": [
+        0.72,
+        0.7637737239727289,
+        0.72,
+        0.72,
+        0.72
+      ]
+    },
+    "demographic_parity_gap": {
+      "mean": 0.0028017806749075875,
+      "std": 0.006264972047138605,
+      "n": 5,
+      "min": 0.0,
+      "max": 0.014008903374537938,
+      "per_seed": [
+        0.014008903374537938,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "equal_opportunity_gap": {
+      "mean": 0.025426227460125767,
+      "std": 0.056854773012213033,
+      "n": 5,
+      "min": 0.0,
+      "max": 0.12713113730062883,
+      "per_seed": [
+        0.12713113730062883,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "equalized_odds_gap": {
+      "mean": 0.025426227460125767,
+      "std": 0.056854773012213033,
+      "n": 5,
+      "min": 0.0,
+      "max": 0.12713113730062883,
+      "per_seed": [
+        0.12713113730062883,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "faithfulness_strict_hits": {
+      "mean": 22.8,
+      "std": 20.290391814846753,
+      "n": 5,
+      "min": 4.0,
+      "max": 56.0,
+      "per_seed": [
+        23.0,
+        4.0,
+        56.0,
+        22.0,
+        9.0
+      ]
+    },
+    "faithfulness_strict_rate": {
+      "mean": 0.6151538642236316,
+      "std": 0.10347635222926796,
+      "n": 5,
+      "min": 0.5111111111111111,
+      "max": 0.75,
+      "per_seed": [
+        0.5111111111111111,
+        0.6666666666666666,
+        0.6363636363636364,
+        0.5116279069767442,
+        0.75
+      ]
+    },
+    "faithfulness_witnesses": {
+      "mean": 38.8,
+      "std": 32.67567902890466,
+      "n": 5,
+      "min": 6.0,
+      "max": 88.0,
+      "per_seed": [
+        45.0,
+        6.0,
+        88.0,
+        43.0,
+        12.0
+      ]
+    },
+    "fit_seconds": {
+      "mean": 102.60494549199939,
+      "std": 1.549138926800243,
+      "n": 5,
+      "min": 101.40816804766655,
+      "max": 105.26835744082928,
+      "per_seed": [
+        101.78403619676828,
+        101.97312204539776,
+        102.59104372933507,
+        101.40816804766655,
+        105.26835744082928
+      ]
+    },
+    "macro_f1": {
+      "mean": 0.44217469198843584,
+      "std": 0.020439546907709195,
+      "n": 5,
+      "min": 0.4330338487254492,
+      "max": 0.4787380650403826,
+      "per_seed": [
+        0.4787380650403826,
+        0.4330338487254492,
+        0.4330338487254492,
+        0.4330338487254492,
+        0.4330338487254492
+      ]
+    },
+    "n_literals": {
+      "mean": 51.0,
+      "std": 0.0,
+      "n": 5,
+      "min": 51.0,
+      "max": 51.0,
+      "per_seed": [
+        51.0,
+        51.0,
+        51.0,
+        51.0,
+        51.0
+      ]
+    },
+    "n_suspect_clauses": {
+      "mean": 3.2,
+      "std": 3.0331501776206204,
+      "n": 5,
+      "min": 0.0,
+      "max": 8.0,
+      "per_seed": [
+        4.0,
+        0.0,
+        8.0,
+        2.0,
+        2.0
+      ]
+    },
+    "n_test": {
+      "mean": 16281.0,
+      "std": 0.0,
+      "n": 5,
+      "min": 16281.0,
+      "max": 16281.0,
+      "per_seed": [
+        16281.0,
+        16281.0,
+        16281.0,
+        16281.0,
+        16281.0
+      ]
+    },
+    "n_train": {
+      "mean": 32561.0,
+      "std": 0.0,
+      "n": 5,
+      "min": 32561.0,
+      "max": 32561.0,
+      "per_seed": [
+        32561.0,
+        32561.0,
+        32561.0,
+        32561.0,
+        32561.0
+      ]
+    },
+    "recourse_attempts": {
+      "mean": 47.0,
+      "std": 5.656854249492381,
+      "n": 5,
+      "min": 37.0,
+      "max": 50.0,
+      "per_seed": [
+        37.0,
+        48.0,
+        50.0,
+        50.0,
+        50.0
+      ]
+    },
+    "recourse_p50_ms": {
+      "mean": 0.02937018871307373,
+      "std": 0.0021598252010867065,
+      "n": 5,
+      "min": 0.027377158403396606,
+      "max": 0.03269314765930176,
+      "per_seed": [
+        0.028245151042938232,
+        0.027377158403396606,
+        0.03269314765930176,
+        0.030353665351867676,
+        0.02818182110786438
+      ]
+    },
+    "recourse_p95_ms": {
+      "mean": 539.7351004183292,
+      "std": 485.41925212833536,
+      "n": 5,
+      "min": 0.030525028705596924,
+      "max": 990.9909293055534,
+      "per_seed": [
+        840.6795933842659,
+        0.030525028705596924,
+        24.543624371290207,
+        990.9909293055534,
+        842.430830001831
+      ]
+    },
+    "recourse_success": {
+      "mean": 0.0,
+      "std": 0.0,
+      "n": 5,
+      "min": 0.0,
+      "max": 0.0,
+      "per_seed": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "recourse_success_rate": {
+      "mean": 0.0,
+      "std": 0.0,
+      "n": 5,
+      "min": 0.0,
+      "max": 0.0,
+      "per_seed": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "seed": {
+      "mean": 549.4,
+      "std": 530.499104617529,
+      "n": 5,
+      "min": 42.0,
+      "max": 1337.0,
+      "per_seed": [
+        123.0,
+        1337.0,
+        42.0,
+        456.0,
+        789.0
+      ]
+    },
+    "wall_clock_s": {
+      "mean": 164.59265370368956,
+      "std": 14.9825148353557,
+      "n": 5,
+      "min": 148.1328634135425,
+      "max": 185.59961376339197,
+      "per_seed": [
+        173.8952937014401,
+        148.1328634135425,
+        156.3953083306551,
+        185.59961376339197,
+        158.9401893094182
+      ]
+    }
+  },
+  "per_seed_summary": [
+    {
+      "dataset": "adult_income",
+      "seed": 123,
+      "backend_kind": "graphtsetlinmachine",
+      "n_train": 32561,
+      "n_test": 16281,
+      "n_literals": 51,
+      "accuracy": 0.7388981020821817,
+      "macro_f1": 0.4787380650403826,
+      "fit_seconds": 101.78403619676828,
+      "demographic_parity_gap": 0.014008903374537938,
+      "equal_opportunity_gap": 0.12713113730062883,
+      "equalized_odds_gap": 0.12713113730062883,
+      "recourse_attempts": 37,
+      "recourse_success": 0,
+      "recourse_success_rate": 0.0,
+      "recourse_p50_ms": 0.028245151042938232,
+      "recourse_p95_ms": 840.6795933842659,
+      "faithfulness_witnesses": 45,
+      "faithfulness_strict_hits": 23,
+      "faithfulness_strict_rate": 0.5111111111111111,
+      "n_suspect_clauses": 4,
+      "accuracy_after_intervention": 0.72,
+      "wall_clock_s": 173.8952937014401
+    },
+    {
+      "dataset": "adult_income",
+      "seed": 1337,
+      "backend_kind": "graphtsetlinmachine",
+      "n_train": 32561,
+      "n_test": 16281,
+      "n_literals": 51,
+      "accuracy": 0.7637737239727289,
+      "macro_f1": 0.4330338487254492,
+      "fit_seconds": 101.97312204539776,
+      "demographic_parity_gap": 0.0,
+      "equal_opportunity_gap": 0.0,
+      "equalized_odds_gap": 0.0,
+      "recourse_attempts": 48,
+      "recourse_success": 0,
+      "recourse_success_rate": 0.0,
+      "recourse_p50_ms": 0.027377158403396606,
+      "recourse_p95_ms": 0.030525028705596924,
+      "faithfulness_witnesses": 6,
+      "faithfulness_strict_hits": 4,
+      "faithfulness_strict_rate": 0.6666666666666666,
+      "n_suspect_clauses": 0,
+      "accuracy_after_intervention": 0.7637737239727289,
+      "wall_clock_s": 148.1328634135425
+    },
+    {
+      "dataset": "adult_income",
+      "seed": 42,
+      "backend_kind": "graphtsetlinmachine",
+      "n_train": 32561,
+      "n_test": 16281,
+      "n_literals": 51,
+      "accuracy": 0.7637737239727289,
+      "macro_f1": 0.4330338487254492,
+      "fit_seconds": 102.59104372933507,
+      "demographic_parity_gap": 0.0,
+      "equal_opportunity_gap": 0.0,
+      "equalized_odds_gap": 0.0,
+      "recourse_attempts": 50,
+      "recourse_success": 0,
+      "recourse_success_rate": 0.0,
+      "recourse_p50_ms": 0.03269314765930176,
+      "recourse_p95_ms": 24.543624371290207,
+      "faithfulness_witnesses": 88,
+      "faithfulness_strict_hits": 56,
+      "faithfulness_strict_rate": 0.6363636363636364,
+      "n_suspect_clauses": 8,
+      "accuracy_after_intervention": 0.72,
+      "wall_clock_s": 156.3953083306551
+    },
+    {
+      "dataset": "adult_income",
+      "seed": 456,
+      "backend_kind": "graphtsetlinmachine",
+      "n_train": 32561,
+      "n_test": 16281,
+      "n_literals": 51,
+      "accuracy": 0.7637737239727289,
+      "macro_f1": 0.4330338487254492,
+      "fit_seconds": 101.40816804766655,
+      "demographic_parity_gap": 0.0,
+      "equal_opportunity_gap": 0.0,
+      "equalized_odds_gap": 0.0,
+      "recourse_attempts": 50,
+      "recourse_success": 0,
+      "recourse_success_rate": 0.0,
+      "recourse_p50_ms": 0.030353665351867676,
+      "recourse_p95_ms": 990.9909293055534,
+      "faithfulness_witnesses": 43,
+      "faithfulness_strict_hits": 22,
+      "faithfulness_strict_rate": 0.5116279069767442,
+      "n_suspect_clauses": 2,
+      "accuracy_after_intervention": 0.72,
+      "wall_clock_s": 185.59961376339197
+    },
+    {
+      "dataset": "adult_income",
+      "seed": 789,
+      "backend_kind": "graphtsetlinmachine",
+      "n_train": 32561,
+      "n_test": 16281,
+      "n_literals": 51,
+      "accuracy": 0.7637737239727289,
+      "macro_f1": 0.4330338487254492,
+      "fit_seconds": 105.26835744082928,
+      "demographic_parity_gap": 0.0,
+      "equal_opportunity_gap": 0.0,
+      "equalized_odds_gap": 0.0,
+      "recourse_attempts": 50,
+      "recourse_success": 0,
+      "recourse_success_rate": 0.0,
+      "recourse_p50_ms": 0.02818182110786438,
+      "recourse_p95_ms": 842.430830001831,
+      "faithfulness_witnesses": 12,
+      "faithfulness_strict_hits": 9,
+      "faithfulness_strict_rate": 0.75,
+      "n_suspect_clauses": 2,
+      "accuracy_after_intervention": 0.72,
+      "wall_clock_s": 158.9401893094182
+    }
+  ]
+}

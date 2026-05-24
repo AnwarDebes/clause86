@@ -1,0 +1,21 @@
+# Bias-in-Bios overrides (Phase 1 of the research plan).
+
+dataset:
+ name: bias_in_bios
+ max_samples_per_split: 200000 # 200k train; full 255k in phase 1b
+ splits: [train, dev, test]
+ tokenizer_name: bert-base-uncased
+ spacy_model: en_core_web_sm
+ use_dep_edges: true
+ use_sequential_edges: true
+ max_subwords: 128
+
+tm:
+ n_clauses: 600
+ T: 400
+ s: 12.0
+ depth: 3
+ n_epochs: 20
+
+protected_attribute: gender
+favourable_class_id: 0 # placeholder; occupation prediction is multi-class

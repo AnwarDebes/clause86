@@ -1,0 +1,42 @@
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+.eggs/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# Datasets (large; never check in)
+data/raw/
+data/processed/
+data/precomputed_graphs/
+*.pkl
+*.pkl.gz
+
+# Models
+*.pt
+*.bin
+*.safetensors
+
+# Logs / receipts (per-experiment, never check in)
+experiments/**/log.jsonl
+experiments/**/checkpoints/
+results/*.csv
+receipts/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# But DO keep paper_d/seed_*/summary.json (small canonical aggregates)
+!experiments/**/summary.json
+!experiments/**/config.yaml

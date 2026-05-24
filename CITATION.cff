@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+title: >-
+ Clause86: Article-86-Compliant Hiring Decisions via Graph Tsetlin Machines
+ with Faithful Clause Explanations and Counterfactual Recourse
+authors:
+ - family-names: Anwar
+  affiliation: University of Agder
+year: 2026
+abstract: >-
+ EU AI Act Article 86 (effective 2 August 2026) grants any person affected
+ by a high-risk AI decision the right to "clear and meaningful explanations
+ of the role of the AI system in the decision-making procedure and the main
+ elements of the decision taken." Post-hoc explainers (SHAP, LIME) are
+ approximations the deployer cannot demonstrate are faithful to the model.
+ Clause86 produces hiring decisions as a Graph Tsetlin Machine over
+ subword-dependency graphs of resumes (and tabular features); the firing
+ clauses ARE the main elements of the decision, by construction; a SAT
+ solver verifies that the recorded clauses are consistent with the recorded
+ label and that the offered counterfactual recourse is minimal; clause
+ inspection lets the deployer delete rules that use protected proxies,
+ closing the loop between Article 86 transparency and Article 14 effective
+ oversight.
+keywords:
+ - Tsetlin Machine
+ - Graph Tsetlin Machine
+ - EU AI Act
+ - Article 86
+ - right to explanation
+ - interpretable hiring
+ - counterfactual recourse
+ - algorithmic fairness
+ - SAT verification
+license: MIT

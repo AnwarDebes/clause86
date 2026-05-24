@@ -1,0 +1,15 @@
+# Adult-Income overrides (Phase 2).
+
+dataset:
+ name: adult_income
+ splits: [train, test]
+
+tm:
+ n_clauses: 300
+ T: 150
+ s: 8.0
+ depth: 2
+ n_epochs: 30
+
+protected_attribute: gender
+favourable_class_id: 1 # >50k income

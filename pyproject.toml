@@ -1,0 +1,89 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "clause86"
+version = "0.1.0"
+description = "Article-86-compliant hiring decisions via a Graph Tsetlin Machine: faithful Boolean clause explanations, counterfactual recourse, and fairness via clause inspection."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+keywords = [
+  "Tsetlin Machine",
+  "Graph Tsetlin Machine",
+  "EU AI Act",
+  "Article 86",
+  "right to explanation",
+  "interpretable hiring",
+  "counterfactual recourse",
+  "algorithmic fairness",
+  "SAT verification",
+  "neuro-symbolic AI",
+]
+authors = [
+  { name = "Anwar (University of Agder)" }
+]
+dependencies = [
+  "numpy>=1.26,<2",
+  "scipy>=1.12",
+  "scikit-learn>=1.4",
+  "pandas>=2.2",
+  "pyyaml>=6.0",
+  "tqdm>=4.66",
+]
+
+[project.optional-dependencies]
+tm = [
+  "GraphTsetlinMachine>=0.3.3",
+  "tmu>=0.8.3",
+]
+text = [
+  "transformers>=4.50",
+  "datasets>=3.6",
+  "spacy>=3.8",
+]
+sat = [
+  "python-sat>=1.8.dev14",
+]
+baselines = [
+  "torch>=2.6",
+  "xgboost>=2.1",
+  "shap>=0.46",
+]
+dev = [
+  "pytest>=8.0",
+  "pytest-cov>=4.1",
+]
+full = [
+  "GraphTsetlinMachine>=0.3.3",
+  "tmu>=0.8.3",
+  "transformers>=4.50",
+  "datasets>=3.6",
+  "spacy>=3.8",
+  "python-sat>=1.8.dev14",
+  "torch>=2.6",
+  "xgboost>=2.1",
+  "shap>=0.46",
+]
+
+[project.urls]
+Homepage = "https://github.com/AnwarDebes/clause86"
+Repository = "https://github.com/AnwarDebes/clause86"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+  "tm: requires GraphTsetlinMachine installed",
+  "sat: requires python-sat installed",
+  "text: requires transformers + spacy + datasets installed",
+  "torch: requires torch + xgboost + shap installed (baselines)",
+  "slow: long-running",
+]
+filterwarnings = [
+  "ignore::DeprecationWarning",
+  "ignore::PendingDeprecationWarning",
+]

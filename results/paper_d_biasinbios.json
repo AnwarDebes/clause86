@@ -1,0 +1,427 @@
+{
+  "dataset": "bias_in_bios",
+  "n_seeds": 5,
+  "aggregate": {
+    "accuracy": {
+      "mean": 0.2178,
+      "std": 0.059915649040964254,
+      "n": 5,
+      "min": 0.1171,
+      "max": 0.2746,
+      "per_seed": [
+        0.2313,
+        0.2198,
+        0.1171,
+        0.2462,
+        0.2746
+      ]
+    },
+    "accuracy_after_intervention": {
+      "mean": 0.2178,
+      "std": 0.059915649040964254,
+      "n": 5,
+      "min": 0.1171,
+      "max": 0.2746,
+      "per_seed": [
+        0.2313,
+        0.2198,
+        0.1171,
+        0.2462,
+        0.2746
+      ]
+    },
+    "demographic_parity_gap": {
+      "mean": 0.01984800181309964,
+      "std": 0.01536844189325079,
+      "n": 5,
+      "min": 0.0045105890055651965,
+      "max": 0.0397542242703533,
+      "per_seed": [
+        0.0045105890055651965,
+        0.03240411976530433,
+        0.013403842763969664,
+        0.009167233260305718,
+        0.0397542242703533
+      ]
+    },
+    "equal_opportunity_gap": {
+      "mean": 0.047727272727272715,
+      "std": 0.025913077843162238,
+      "n": 5,
+      "min": 0.022727272727272707,
+      "max": 0.09090909090909091,
+      "per_seed": [
+        0.04545454545454547,
+        0.09090909090909091,
+        0.022727272727272707,
+        0.03409090909090906,
+        0.045454545454545456
+      ]
+    },
+    "equalized_odds_gap": {
+      "mean": 0.047727272727272715,
+      "std": 0.025913077843162238,
+      "n": 5,
+      "min": 0.022727272727272707,
+      "max": 0.09090909090909091,
+      "per_seed": [
+        0.04545454545454547,
+        0.09090909090909091,
+        0.022727272727272707,
+        0.03409090909090906,
+        0.045454545454545456
+      ]
+    },
+    "faithfulness_strict_hits": {
+      "mean": 0.0,
+      "std": 0.0,
+      "n": 5,
+      "min": 0.0,
+      "max": 0.0,
+      "per_seed": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "faithfulness_strict_rate": {
+      "mean": 0.0,
+      "std": 0.0,
+      "n": 5,
+      "min": 0.0,
+      "max": 0.0,
+      "per_seed": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "faithfulness_witnesses": {
+      "mean": 0.0,
+      "std": 0.0,
+      "n": 5,
+      "min": 0.0,
+      "max": 0.0,
+      "per_seed": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "fit_seconds": {
+      "mean": 23.76082906499505,
+      "std": 0.4293412647170329,
+      "n": 5,
+      "min": 23.16844578832388,
+      "max": 24.210452895611525,
+      "per_seed": [
+        23.88090955466032,
+        23.16844578832388,
+        24.210452895611525,
+        24.06335547566414,
+        23.48098161071539
+      ]
+    },
+    "macro_f1": {
+      "mean": 0.017384429149551905,
+      "std": 0.002879528533707262,
+      "n": 5,
+      "min": 0.014276437218492598,
+      "max": 0.02182336833636987,
+      "per_seed": [
+        0.02182336833636987,
+        0.015546132863945164,
+        0.014276437218492598,
+        0.018022101454326266,
+        0.01725410587462563
+      ]
+    },
+    "n_literals": {
+      "mean": 2002.0,
+      "std": 0.0,
+      "n": 5,
+      "min": 2002.0,
+      "max": 2002.0,
+      "per_seed": [
+        2002.0,
+        2002.0,
+        2002.0,
+        2002.0,
+        2002.0
+      ]
+    },
+    "n_suspect_clauses": {
+      "mean": 0.0,
+      "std": 0.0,
+      "n": 5,
+      "min": 0.0,
+      "max": 0.0,
+      "per_seed": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "n_test": {
+      "mean": 10000.0,
+      "std": 0.0,
+      "n": 5,
+      "min": 10000.0,
+      "max": 10000.0,
+      "per_seed": [
+        10000.0,
+        10000.0,
+        10000.0,
+        10000.0,
+        10000.0
+      ]
+    },
+    "n_train": {
+      "mean": 10000.0,
+      "std": 0.0,
+      "n": 5,
+      "min": 10000.0,
+      "max": 10000.0,
+      "per_seed": [
+        10000.0,
+        10000.0,
+        10000.0,
+        10000.0,
+        10000.0
+      ]
+    },
+    "recourse_attempts": {
+      "mean": 17.8,
+      "std": 6.906518659932803,
+      "n": 5,
+      "min": 7.0,
+      "max": 25.0,
+      "per_seed": [
+        22.0,
+        19.0,
+        7.0,
+        16.0,
+        25.0
+      ]
+    },
+    "recourse_p50_ms": {
+      "mean": 0.035274773836135864,
+      "std": 0.0022773013740400383,
+      "n": 5,
+      "min": 0.03256276249885559,
+      "max": 0.038761645555496216,
+      "per_seed": [
+        0.03256276249885559,
+        0.03419443964958191,
+        0.038761645555496216,
+        0.03552064299583435,
+        0.035334378480911255
+      ]
+    },
+    "recourse_p95_ms": {
+      "mean": 0.04350319504737854,
+      "std": 0.007695738113936504,
+      "n": 5,
+      "min": 0.03551691770553589,
+      "max": 0.05552545189857483,
+      "per_seed": [
+        0.03551691770553589,
+        0.04002824425697327,
+        0.05552545189857483,
+        0.04608184099197388,
+        0.04036352038383484
+      ]
+    },
+    "recourse_success": {
+      "mean": 0.0,
+      "std": 0.0,
+      "n": 5,
+      "min": 0.0,
+      "max": 0.0,
+      "per_seed": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "recourse_success_rate": {
+      "mean": 0.0,
+      "std": 0.0,
+      "n": 5,
+      "min": 0.0,
+      "max": 0.0,
+      "per_seed": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "seed": {
+      "mean": 549.4,
+      "std": 530.499104617529,
+      "n": 5,
+      "min": 42.0,
+      "max": 1337.0,
+      "per_seed": [
+        123.0,
+        1337.0,
+        42.0,
+        456.0,
+        789.0
+      ]
+    },
+    "wall_clock_s": {
+      "mean": 145.48030680865048,
+      "std": 4.32371934737818,
+      "n": 5,
+      "min": 139.34415386989713,
+      "max": 150.06423538550735,
+      "per_seed": [
+        143.1007821895182,
+        139.34415386989713,
+        146.27957094088197,
+        150.06423538550735,
+        148.61279165744781
+      ]
+    }
+  },
+  "per_seed_summary": [
+    {
+      "dataset": "bias_in_bios",
+      "seed": 123,
+      "backend_kind": "graphtsetlinmachine",
+      "n_train": 10000,
+      "n_test": 10000,
+      "n_literals": 2002,
+      "accuracy": 0.2313,
+      "macro_f1": 0.02182336833636987,
+      "fit_seconds": 23.88090955466032,
+      "demographic_parity_gap": 0.0045105890055651965,
+      "equal_opportunity_gap": 0.04545454545454547,
+      "equalized_odds_gap": 0.04545454545454547,
+      "recourse_attempts": 22,
+      "recourse_success": 0,
+      "recourse_success_rate": 0.0,
+      "recourse_p50_ms": 0.03256276249885559,
+      "recourse_p95_ms": 0.03551691770553589,
+      "faithfulness_witnesses": 0,
+      "faithfulness_strict_hits": 0,
+      "faithfulness_strict_rate": 0.0,
+      "n_suspect_clauses": 0,
+      "accuracy_after_intervention": 0.2313,
+      "wall_clock_s": 143.1007821895182
+    },
+    {
+      "dataset": "bias_in_bios",
+      "seed": 1337,
+      "backend_kind": "graphtsetlinmachine",
+      "n_train": 10000,
+      "n_test": 10000,
+      "n_literals": 2002,
+      "accuracy": 0.2198,
+      "macro_f1": 0.015546132863945164,
+      "fit_seconds": 23.16844578832388,
+      "demographic_parity_gap": 0.03240411976530433,
+      "equal_opportunity_gap": 0.09090909090909091,
+      "equalized_odds_gap": 0.09090909090909091,
+      "recourse_attempts": 19,
+      "recourse_success": 0,
+      "recourse_success_rate": 0.0,
+      "recourse_p50_ms": 0.03419443964958191,
+      "recourse_p95_ms": 0.04002824425697327,
+      "faithfulness_witnesses": 0,
+      "faithfulness_strict_hits": 0,
+      "faithfulness_strict_rate": 0.0,
+      "n_suspect_clauses": 0,
+      "accuracy_after_intervention": 0.2198,
+      "wall_clock_s": 139.34415386989713
+    },
+    {
+      "dataset": "bias_in_bios",
+      "seed": 42,
+      "backend_kind": "graphtsetlinmachine",
+      "n_train": 10000,
+      "n_test": 10000,
+      "n_literals": 2002,
+      "accuracy": 0.1171,
+      "macro_f1": 0.014276437218492598,
+      "fit_seconds": 24.210452895611525,
+      "demographic_parity_gap": 0.013403842763969664,
+      "equal_opportunity_gap": 0.022727272727272707,
+      "equalized_odds_gap": 0.022727272727272707,
+      "recourse_attempts": 7,
+      "recourse_success": 0,
+      "recourse_success_rate": 0.0,
+      "recourse_p50_ms": 0.038761645555496216,
+      "recourse_p95_ms": 0.05552545189857483,
+      "faithfulness_witnesses": 0,
+      "faithfulness_strict_hits": 0,
+      "faithfulness_strict_rate": 0.0,
+      "n_suspect_clauses": 0,
+      "accuracy_after_intervention": 0.1171,
+      "wall_clock_s": 146.27957094088197
+    },
+    {
+      "dataset": "bias_in_bios",
+      "seed": 456,
+      "backend_kind": "graphtsetlinmachine",
+      "n_train": 10000,
+      "n_test": 10000,
+      "n_literals": 2002,
+      "accuracy": 0.2462,
+      "macro_f1": 0.018022101454326266,
+      "fit_seconds": 24.06335547566414,
+      "demographic_parity_gap": 0.009167233260305718,
+      "equal_opportunity_gap": 0.03409090909090906,
+      "equalized_odds_gap": 0.03409090909090906,
+      "recourse_attempts": 16,
+      "recourse_success": 0,
+      "recourse_success_rate": 0.0,
+      "recourse_p50_ms": 0.03552064299583435,
+      "recourse_p95_ms": 0.04608184099197388,
+      "faithfulness_witnesses": 0,
+      "faithfulness_strict_hits": 0,
+      "faithfulness_strict_rate": 0.0,
+      "n_suspect_clauses": 0,
+      "accuracy_after_intervention": 0.2462,
+      "wall_clock_s": 150.06423538550735
+    },
+    {
+      "dataset": "bias_in_bios",
+      "seed": 789,
+      "backend_kind": "graphtsetlinmachine",
+      "n_train": 10000,
+      "n_test": 10000,
+      "n_literals": 2002,
+      "accuracy": 0.2746,
+      "macro_f1": 0.01725410587462563,
+      "fit_seconds": 23.48098161071539,
+      "demographic_parity_gap": 0.0397542242703533,
+      "equal_opportunity_gap": 0.045454545454545456,
+      "equalized_odds_gap": 0.045454545454545456,
+      "recourse_attempts": 25,
+      "recourse_success": 0,
+      "recourse_success_rate": 0.0,
+      "recourse_p50_ms": 0.035334378480911255,
+      "recourse_p95_ms": 0.04036352038383484,
+      "faithfulness_witnesses": 0,
+      "faithfulness_strict_hits": 0,
+      "faithfulness_strict_rate": 0.0,
+      "n_suspect_clauses": 0,
+      "accuracy_after_intervention": 0.2746,
+      "wall_clock_s": 148.61279165744781
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+# IBM HR-Analytics overrides (Phase 3).
+
+dataset:
+ name: hr_analytics
+
+tm:
+ n_clauses: 200
+ T: 100
+ s: 6.0
+ depth: 2
+ n_epochs: 40
+
+protected_attribute: gender
+favourable_class_id: 0 # 'stay' is favourable to the employer

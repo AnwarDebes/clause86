@@ -1,11 +1,18 @@
 # Clause86
 
-> **An Article-86-compliant hiring decision system built on a Graph
-> Tsetlin Machine.** Faithful Boolean clause explanations, SAT-
-> verifiable receipts, counterfactual recourse, and fairness via
-> clause inspection.
->
-> University of Agder (UiA).
+▶ See this project in the film *Show Its Work*: https://youtu.be/pefnyZ-oCcM?t=1140
+
+Clause86 is a hiring model that shows its work: a research prototype
+built on a Graph Tsetlin Machine, where the explanation of a decision
+is the set of Boolean clauses that actually fired for that person. Each
+decision also gets a counterfactual recourse search (a feasible change
+of up to 3 edits that would flip it), an HMAC-signed receipt with a
+DIMACS CNF file that a SAT solver can replay, and a fairness audit that
+can delete clauses which fire unevenly across groups. It was built at
+the University of Agder (UiA) around EU AI Act Article 86, the right to
+an explanation of an individual decision. The audit layer runs end to
+end on three datasets, but accuracy and recourse success are still weak
+(see [Results](#results) and [Honest caveats](#honest-caveats)).
 
 ---
 
@@ -88,39 +95,39 @@ Clause86 is the first deployer-side answer:
 ## What Clause86 does, in one picture
 
 ```
-            Clause86
-       +-----------------------+
-Resume +  --*| Subword + dep    |
-features   | multigraph (text)  |
-       | Bipartite literal  |
-       | graph (tabular)   |
-       +-----------+-----------+
-             |
-       +-----------+-----------+
-       | Graph Tsetlin    |
-       | Machine ensemble   |
-       | (K seeds)      |
-       +-----------+-----------+
-             |
-             |--* Decision (hire / class)
-             |
-             |--* Article 86 explanation
-             |    - main elements (firing clauses)
-             |    - NL paragraph for the affected person
-             |
-             |--* Counterfactual recourse
-             |    - greedy minimum-edit
-             |    - feasibility-constrained
-             |
-             |--* SAT-verifiable clause receipt
-             |    - HMAC-signed
-             |    - DIMACS CNF file
-             |    - replay in <=50 ms
-             |
-             `--* Fairness audit + intervention
-                  - demographic parity / equal opp / equalized odds
-                  - per-clause group-firing audit
-                  - clause-deletion w/ accuracy delta
+                       Clause86
+              +-----------------------+
+Resume +      | Subword + dep         |
+features ---> | multigraph (text)     |
+              | Bipartite literal     |
+              | graph (tabular)       |
+              +-----------+-----------+
+                          |
+              +-----------+-----------+
+              | Graph Tsetlin         |
+              | Machine ensemble      |
+              | (K seeds)             |
+              +-----------+-----------+
+                          |
+                          |--> Decision (hire / class)
+                          |
+                          |--> Article 86 explanation
+                          |      - main elements (firing clauses)
+                          |      - NL paragraph for the affected person
+                          |
+                          |--> Counterfactual recourse
+                          |      - greedy minimum-edit
+                          |      - feasibility-constrained
+                          |
+                          |--> SAT-verifiable clause receipt
+                          |      - HMAC-signed
+                          |      - DIMACS CNF file
+                          |      - replay in <=50 ms
+                          |
+                          `--> Fairness audit + intervention
+                                 - demographic parity / equal opp / equalized odds
+                                 - per-clause group-firing audit
+                                 - clause-deletion w/ accuracy delta
 ```
 
 ---
@@ -139,16 +146,21 @@ flowchart LR
 ```
 
 The subword-dependency graph builder is the same one used in Paper A
-(``subword-dep-graphtm``); the K-seed ensemble + clause-driven
-recourse mirror ``graphtm-cbr``; the SAT receipt + HMAC signature
-mirror ``clauseguard``. Clause86 is the deployer-side companion to
-clauseguard: clauseguard covers Article 13/14 provider-side
-transparency, Clause86 covers Article 86 deployer-side individual
-explanation.
+([`subword-dep-graphtm`](https://github.com/AnwarDebes/subword-dep-graphtm));
+the K-seed ensemble + clause-driven recourse mirror
+[`graphtm-cbr`](https://github.com/AnwarDebes/graphtm-cbr); the SAT
+receipt + HMAC signature mirror
+[`clauseguard`](https://github.com/AnwarDebes/clauseguard). Clause86 is
+the deployer-side companion to clauseguard: clauseguard covers Article
+13/14 provider-side transparency, Clause86 covers Article 86
+deployer-side individual explanation.
 
 ---
 
 ## Project status vs. the EU AI Act timeline
+
+This is the roadmap as planned in May 2026. The Status table above is
+the current state.
 
 ```mermaid
 gantt
@@ -197,9 +209,13 @@ features) per [`docs/NOVELTY_AUDIT.md`](docs/NOVELTY_AUDIT.md).
 ## Results
 
 **5-seed protocol, real CAIR GraphTM on Tesla V100-SXM3-32GB.**
-Numbers below are measured outputs of `bash scripts/run_all_seeds.sh
-<dataset>` followed by `python scripts/aggregate_results.py`. Per-seed
-detail in `results/paper_d_<dataset>.json`.
+Seeds 42, 123, 456, 789 and 1337. Each seed writes
+`experiments/paper_d_<name>/seed_<n>/summary.json`, and
+`scripts/aggregate_results.py` turns the five summaries into
+`results/paper_d_<name>.json` (mean, std and per-seed values). The
+committed files are `results/paper_d_synthetic.json`,
+`results/paper_d_adult.json` and `results/paper_d_biasinbios.json`;
+every number in the tables below comes from them.
 
 ### Measured (V100, 2026-05-24)
 
@@ -223,12 +239,12 @@ detail in `results/paper_d_<dataset>.json`.
 | Capability | Status |
 |---|---|
 | Article 86 main-elements explanation generated per sample | working on all three datasets |
-| Counterfactual recourse search runs end-to-end | working; success rate is model-quality-dependent |
-| HMAC-signed receipts + DIMACS CNF files written per sample | written to `experiments/paper_d_*/seed_*/receipts/` |
+| Counterfactual recourse search runs end-to-end | working; success rate is model-quality-dependent (0.010 synthetic, 0.0 Adult-Income, 0.0 Bias-in-Bios) |
+| HMAC-signed receipts + DIMACS CNF files written per sample | written to `experiments/paper_d_*/seed_*/receipts/` (not committed) |
 | python-sat / Glucose-4 receipt round-trip | passes for synthetic; brute-force fallback for tests |
 | Demographic-parity / equal-opportunity / equalized-odds metrics | computed per dataset |
-| Per-clause group-firing audit | computed per dataset (60-130 suspect clauses per seed) |
-| Clause-deletion intervention with accuracy delta | computed per dataset |
+| Per-clause group-firing audit | computed per dataset (suspect clauses per seed: 26-130 synthetic, 0-8 Adult-Income, 0 Bias-in-Bios) |
+| Clause-deletion intervention with accuracy delta | computed on synthetic and Adult-Income; no clause was flagged on Bias-in-Bios, so nothing was deleted there |
 
 ### Hyperparameter caveat (open work)
 
@@ -256,25 +272,40 @@ clause-deletion fairness) is fully exercised by the current runs.
 ## Quickstart
 
 ```bash
-# 1. Install (editable mode)
-pip install -e .
+# 1. Install (editable mode, with pytest)
+pip install -e ".[dev]"
 
 # 2. Run the test suite (no GraphTM, no GPU required)
 PYTHONPATH=src pytest tests/ -q
 
-# 3. Smoke test the full pipeline on the synthetic dataset (~1 second)
-PYTHONPATH=src:. python experiments/train_synthetic.py --seed 42 \
-  --out-dir experiments/paper_d_synthetic
+# 3. Smoke test the full pipeline on the synthetic dataset (CPU, seconds).
+#    --allow-fallback runs the pure-Python stand-in, so these are not TM numbers.
+PYTHONPATH=src:. python experiments/train_synthetic.py --seed 42 --allow-fallback \
+  --out-dir /tmp/clause86-smoke
 
-# 4. Reproduce the planned 5-seed protocol (requires CAIR GraphTM)
+# 4. Reproduce the 5-seed protocol (requires CAIR GraphTM on a CUDA GPU)
 pip install -e ".[full]"
 bash scripts/download_datasets.sh
-bash scripts/run_all_seeds.sh bias_in_bios
-bash scripts/run_all_seeds.sh adult_income
+PYTHONPATH=src:. bash scripts/run_all_seeds.sh synthetic
+PYTHONPATH=src:. bash scripts/run_all_seeds.sh adult_income
+PYTHONPATH=src:. bash scripts/run_all_seeds.sh bias_in_bios
 ```
 
-For a real benchmarking run, pass ``--no-allow-fallback`` to refuse
-to log results under the pure-Python toy fallback.
+Notes:
+
+* `PYTHONPATH` needs the repo root (`.`) because the training scripts
+ import `experiments.full_pipeline`.
+* The training scripts refuse the pure-Python fallback unless you pass
+ `--allow-fallback` (only `train_synthetic.py` and `full_pipeline.py`
+ accept it), so a benchmarking run never logs fallback numbers.
+* `run_all_seeds.sh <dataset>` names its output after the dataset
+ argument (for example `results/paper_d_adult_income.json`), so it does
+ not overwrite the committed results. For Bias-in-Bios it uses the
+ script default of `--max-train 20000`; the committed numbers used a
+ 10k slice (`n_train` = 10000 in `results/paper_d_biasinbios.json`).
+* Receipts are signed with the key in `CLAUSE86_HMAC_KEY`. If it is
+ unset, a built-in development key is used, so set your own before
+ relying on a signature.
 
 ---
 
@@ -300,11 +331,12 @@ clause86/
 |  |-- eval/     classification report + faithfulness + JSONL logger + stats
 |  `-- utils/    seeding + canonical JSON + SHA-256
 |-- experiments/   full_pipeline, train_synthetic, train_biasinbios,
-|           train_adult, run_baselines
+|           train_adult, run_baselines, plus the committed
+|           per-seed summaries (paper_d_*/seed_*/summary.json)
 |-- scripts/     download_datasets.sh, run_all_seeds.sh, aggregate_results.py
-|-- tests/      22 test files, 63 passing, 1 skipped (python-sat)
+|-- tests/      20 test files, 63 passing, 1 skipped (python-sat)
 |-- configs/     base.yaml + per-dataset overrides (placeholder)
-`-- results/     per-seed JSON, aggregated CSV, paper figures
+`-- results/     aggregated 5-seed JSON per dataset (synthetic, adult, biasinbios)
 ```
 
 ---
